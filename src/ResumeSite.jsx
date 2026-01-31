@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
-import { Github, Linkedin, Mail, MapPin, ExternalLink, Award, GraduationCap, Download } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, ExternalLink, Award, GraduationCap, Download, Sun, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 import profilePhoto from "./assets/profile-photo.png";
 import GitHubStats from "./components/GitHubStats";
@@ -10,13 +10,55 @@ import { Collapsible } from "./components/ui/collapsible";
 import DATA from "./data/resumeData";
 
 export default function ResumeSite() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    return localStorage.getItem("theme") || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  });
+
+  const [showThemeToggle, setShowThemeToggle] = useState(true);
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    let lastScrollY = 0;
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowThemeToggle(false);
+      } else if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        setShowThemeToggle(true);
+      }
+      lastScrollY = currentScrollY;
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const hasLinks = useMemo(() => {
     const { linkedin, github, website, email } = DATA.contacts;
     return Boolean(linkedin || github || website || email);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-900">
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 dark:from-transparent dark:to-transparent text-slate-900 dark:text-white">
+      {/* Fixed theme toggle at top-right */}
+      <div className={`fixed top-6 right-6 z-50 transition-opacity duration-300 ${showThemeToggle ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+        <Button
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          variant="ghost"
+          className="rounded-2xl bg-white dark:bg-slate-800 shadow-md hover:shadow-lg"
+        >
+          {theme === 'dark' ? <Sun className="h-4 w-4 mr-2"/> : <Moon className="h-4 w-4 mr-2"/>}
+          {theme === 'dark' ? 'Light' : 'Dark'}
+        </Button>
+      </div>
       <header className="max-w-5xl mx-auto px-6 pt-12 pb-6">
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
@@ -273,7 +315,7 @@ export default function ResumeSite() {
         className="max-w-5xl mx-auto px-6 pb-12 text-center text-slate-400 text-sm"
       >
         <p>
-          Serge Bacht, 2025
+          Serge Bacht, 2026
         </p>
       </motion.footer>
     </div>
