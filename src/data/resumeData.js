@@ -1,9 +1,9 @@
 const DATA = {
   name: "Serge Bacht",
-  title: "MLOps Engineer / Software Architect",
+  title: "Software Engineer",
   location: "Munich, Germany",
   summary:
-    "MLOps Engineer transitioning from 10+ years in software engineering and architecture. Experienced in building scalable, cloud-native platforms and now focused on deploying, monitoring, and automating machine learning systems in production.",
+    "Software Engineer transitioning from 10+ years in software engineering and architecture. Experienced in building scalable, cloud-native platforms and now focused on deploying, monitoring, and automating machine learning systems in production.",
   contacts: {
     email: "serge.bacht@gmail.com", 
     phone: "", 
@@ -22,27 +22,14 @@ const DATA = {
   ],
   skills: {
     core: [
-      "Python", "MLOps", "MLflow", "Airflow", "Apache Spark", "Docker", "Kubernetes",
-      "Terraform", "AWS", "GCP", "CI/CD", "Azure DevOps", ".NET", "C#", "Microservices",
-      "Machine Learning Algorithms", "PyTorch", "NLP"
+      "Docker", "Kubernetes",
+      "Terraform", "CI/CD", "Azure DevOps", ".NET", "C#", "Microservices"
     ],
     complementary: [
       "React/TypeScript", "Angular", "SQL Server", "NoSQL", "Observability", "Problem Solving", "Team Leadership"
     ],
   },
   experience: [
-    {
-      company: "Self-Employed",
-      role: "MLOps Engineer",
-      period: "Jun 2025 – Present",
-      location: "Munich, Germany (Hybrid)",
-      bullets: [
-        "Building personal projects to practice MLOps: automating ML pipelines with MLflow & Airflow, deploying ML models in production.",
-        "Designed scalable data pipelines with Apache Spark and containerized deployments.",
-        "Exploring cloud infrastructure automation with Terraform, AWS, and GCP.",
-      ],
-      links: [],
-    },
     {
       company: "Ascent",
       role: "Senior Software Engineer",

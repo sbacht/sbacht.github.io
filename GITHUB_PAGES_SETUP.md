@@ -105,7 +105,7 @@ git push origin main
 ### **Update Meta Description:**
 ```jsx
 // In index.html
-<meta name="description" content="MLOps Engineer / Software Architect - Professional Resume" />
+<meta name="description" content="Software Engineer - Professional Resume" />
 ```
 
 ### **Add Analytics (Optional):**
