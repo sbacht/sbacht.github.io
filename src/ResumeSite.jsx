@@ -3,6 +3,8 @@ import { Card, CardContent } from "./components/ui/card";
 import { Button } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
 import { Github, Linkedin, Mail, MapPin, ExternalLink, Award, GraduationCap, Download, Sun, Moon, Globe } from "lucide-react";
+import ProjectsPage from "./pages/ProjectsPage";
+import BlogPage from "./pages/BlogPage";
 import { motion } from "framer-motion";
 import profilePhoto from "./assets/profile-photo.png";
 import GitHubStats from "./components/GitHubStats";
@@ -22,6 +24,7 @@ export default function ResumeSite() {
   });
 
   const [showThemeToggle, setShowThemeToggle] = useState(true);
+  const [page, setPage] = useState("about");
 
   const t = translations[language];
   const translatedData = getTranslatedData(language);
@@ -83,72 +86,91 @@ export default function ResumeSite() {
           {theme === 'dark' ? t.light : t.dark}
         </Button>
       </div>
-      <header className="max-w-5xl mx-auto px-6 pt-12 pb-6">
-        <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            {/* Profile Photo */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex-shrink-0"
-            >
-              <img 
-                src={profilePhoto} 
-                alt={`${DATA.name} - Professional Photo`}
-                className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-lg"
-              />
-            </motion.div>
-            
-            {/* Header Content */}
-            <div className="flex-1">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{DATA.name}</h1>
-              <p className="mt-2 text-xl text-slate-600 dark:text-slate-400">{translatedData.title}</p>
-              <div className="mt-3 flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                <MapPin className="h-4 w-4" /> <span>{translatedData.location}</span>
-              </div>
-              <p className="mt-6 max-w-3xl text-slate-700 dark:text-slate-300 leading-relaxed">{translatedData.summary}</p>
-            </div>
-          </div>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {/* Download CV Button - Always visible */}
-            <Button asChild variant="default" className="rounded-2xl bg-blue-600 hover:bg-blue-700">
-              <a href="/Serge_Bacht_CV.pdf" download="Serge_Bacht_CV.pdf">
-                <Download className="h-4 w-4 mr-2"/>{t.downloadCV}
-              </a>
-            </Button>
-            
-            {/* Contact buttons - only show if links exist */}
-            {hasLinks && (
-              <>
-                {DATA.contacts.email && (
-                  <Button asChild variant="secondary" className="rounded-2xl">
-                    <a href={`mailto:${DATA.contacts.email}`}><Mail className="h-4 w-4 mr-2"/>{t.email}</a>
-                  </Button>
-                )}
-                {DATA.contacts.linkedin && (
-                  <Button asChild variant="outline" className="rounded-2xl">
-                    <a href={DATA.contacts.linkedin} target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4 mr-2"/>{t.linkedin}</a>
-                  </Button>
-                )}
-                {DATA.contacts.github && (
-                  <Button asChild variant="outline" className="rounded-2xl">
-                    <a href={DATA.contacts.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4 mr-2"/>{t.github}</a>
-                  </Button>
-                )}
-                {DATA.contacts.website && (
-                  <Button asChild className="rounded-2xl">
-                    <a href={DATA.contacts.website} target="_blank" rel="noreferrer">{t.personalSite}<ExternalLink className="h-4 w-4 ml-2"/></a>
-                  </Button>
-                )}
-              </>
-            )}
-          </div>
-        </motion.div>
-      </header>
+      {/* Navigation */}
+      <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <button onClick={() => setPage('about')} className={`px-3 py-1 rounded ${page === 'about' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+            {t.about}
+          </button>
+          <button onClick={() => setPage('projects')} className={`px-3 py-1 rounded ${page === 'projects' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+            {t.projects}
+          </button>
+          <button onClick={() => setPage('blog')} className={`px-3 py-1 rounded ${page === 'blog' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+            {t.blog}
+          </button>
+        </div>
+        <div className="text-sm text-slate-500 dark:text-slate-400">{DATA.name}</div>
+      </nav>
 
-      <main className="max-w-5xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <section className="md:col-span-2 space-y-6">
+      {page === 'about' && (
+        <header className="max-w-5xl mx-auto px-6 pt-6 pb-6">
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+              {/* Profile Photo */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8 }} 
+                animate={{ opacity: 1, scale: 1 }} 
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="flex-shrink-0"
+              >
+                <img 
+                  src={profilePhoto} 
+                  alt={`${DATA.name} - Professional Photo`}
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-lg"
+                />
+              </motion.div>
+              
+              {/* Header Content */}
+              <div className="flex-1">
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tight">{DATA.name}</h1>
+                <p className="mt-2 text-xl text-slate-600 dark:text-slate-400">{translatedData.title}</p>
+                <div className="mt-3 flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                  <MapPin className="h-4 w-4" /> <span>{translatedData.location}</span>
+                </div>
+                <p className="mt-6 max-w-3xl text-slate-700 dark:text-slate-300 leading-relaxed">{translatedData.summary}</p>
+              </div>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {/* Download CV Button - Always visible */}
+              <Button asChild variant="default" className="rounded-2xl bg-blue-600 hover:bg-blue-700">
+                <a href="/Serge_Bacht_CV.pdf" download="Serge_Bacht_CV.pdf">
+                  <Download className="h-4 w-4 mr-2"/>{t.downloadCV}
+                </a>
+              </Button>
+              
+              {/* Contact buttons - only show if links exist */}
+              {hasLinks && (
+                <>
+                  {DATA.contacts.email && (
+                    <Button asChild variant="secondary" className="rounded-2xl">
+                      <a href={`mailto:${DATA.contacts.email}`}><Mail className="h-4 w-4 mr-2"/>{t.email}</a>
+                    </Button>
+                  )}
+                  {DATA.contacts.linkedin && (
+                    <Button asChild variant="outline" className="rounded-2xl">
+                      <a href={DATA.contacts.linkedin} target="_blank" rel="noreferrer"><Linkedin className="h-4 w-4 mr-2"/>{t.linkedin}</a>
+                    </Button>
+                  )}
+                  {DATA.contacts.github && (
+                    <Button asChild variant="outline" className="rounded-2xl">
+                      <a href={DATA.contacts.github} target="_blank" rel="noreferrer"><Github className="h-4 w-4 mr-2"/>{t.github}</a>
+                    </Button>
+                  )}
+                  {DATA.contacts.website && (
+                    <Button asChild className="rounded-2xl">
+                      <a href={DATA.contacts.website} target="_blank" rel="noreferrer">{t.personalSite}<ExternalLink className="h-4 w-4 ml-2"/></a>
+                    </Button>
+                  )}
+                </>
+              )}
+            </div>
+          </motion.div>
+        </header>
+      )}
+
+      {page === 'about' && (
+        <main className="max-w-5xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <section className="md:col-span-2 space-y-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
             <Card className="rounded-2xl shadow-sm">
               <CardContent className="p-6">
@@ -205,9 +227,9 @@ export default function ResumeSite() {
               </CardContent>
             </Card>
           </motion.div>
-        </section>
+          </section>
 
-        <aside className="space-y-6">
+          <aside className="space-y-6">
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
             <Card className="rounded-2xl shadow-sm">
               <CardContent className="p-6">
@@ -329,8 +351,13 @@ export default function ResumeSite() {
               </CardContent>
             </Card>
           </motion.div>
-        </aside>
-      </main>
+          </aside>
+        </main>
+      )}
+
+      {page === 'projects' && <ProjectsPage language={language} />}
+
+      {page === 'blog' && <BlogPage language={language} />}
 
       <motion.footer 
         initial={{ opacity: 0, y: 20 }} 

@@ -20,6 +20,8 @@ export const translations = {
     view: "View",
     light: "Light",
     dark: "Dark",
+    about: "About",
+    blog: "Blog",
   },
   de: {
     downloadCV: "Lebenslauf herunterladen",
@@ -42,6 +44,8 @@ export const translations = {
     view: "Anzeigen",
     light: "Hell",
     dark: "Dunkel",
+    about: "Über mich",
+    blog: "Blog",
   },
 };
 
