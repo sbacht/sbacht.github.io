@@ -13,12 +13,9 @@ const DATA = {
   },
   highlights: [
     "Architected and delivered microservices platforms in insurance and automotive domains",
-    "Hands-on experience with ML pipelines (MLflow, Airflow) and big data (Apache Spark)",
     "Built CI/CD pipelines on Azure DevOps to cut deployment time and improve quality",
     "Skilled in containerization (Docker, Kubernetes) and cloud IaC (Terraform, AWS, GCP)",
     "Mentored teams, drove best practices, and delivered complex enterprise-grade solutions",
-    "Passionate about MLOps, automation, and deploying machine learning models at scale",
-    "Currently building personal MLOps projects to deepen practical skills in model deployment and monitoring",
   ],
   skills: {
     core: [
