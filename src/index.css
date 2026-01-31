@@ -58,18 +58,14 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    background-color: azure;
   }
 
-  /* Dark-mode background: coding image + dark overlay */
+  /* Dark-mode background: dark coding image + stronger dark overlay */
   html.dark body {
-    background-image: 
-      linear-gradient(rgba(2,6,23,0.65), rgba(3,6,12,0.85)),
-      url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1920&q=80&ixlib=rb-4.0.3');
+    background-color: #334;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
     color: hsl(var(--foreground));
   }
 
