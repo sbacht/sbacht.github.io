@@ -103,7 +103,6 @@ export default function ResumeSite() {
             {t.projects}
           </button>
         </div>
-        <div className="text-sm text-slate-500 dark:text-slate-400">{DATA.name}</div>
       </nav>
 
       {page === 'about' && <AboutPage language={language} />}
