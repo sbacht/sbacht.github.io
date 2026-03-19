@@ -49,11 +49,28 @@ export default function AboutPage({ language }) {
             </div>
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            {/* Download CV Button - Always visible */}
+            {/* Download CV Buttons */}
             <Button asChild variant="default" className="rounded-2xl bg-blue-600 hover:bg-blue-700">
-              <a href="/Serge_Bacht_CV.pdf" download="Serge_Bacht_CV.pdf">
-                <Download className="h-4 w-4 mr-2"/>{t.downloadCV}
-              </a>
+              {language === "de" ? (
+                <a href="/Serge_Bacht_Lebenslauf.pdf" download="Serge_Bacht_Lebenslauf.pdf">
+                  <Download className="h-4 w-4 mr-2"/>{t.downloadCV}
+                </a>
+              ) : (
+                <a href="/Serge_Bacht_CV.pdf" download="Serge_Bacht_CV.pdf">
+                  <Download className="h-4 w-4 mr-2"/>{t.downloadCV}
+                </a>
+              )}
+            </Button>
+            <Button asChild variant="outline" className="rounded-2xl">
+              {language === "de" ? (
+                <a href="/Serge_Bacht_CV.pdf" download="Serge_Bacht_CV.pdf">
+                  <Download className="h-4 w-4 mr-2"/>{t.downloadCVde}
+                </a>
+              ) : (
+                <a href="/Serge_Bacht_Lebenslauf.pdf" download="Serge_Bacht_Lebenslauf.pdf">
+                  <Download className="h-4 w-4 mr-2"/>{t.downloadCVde}
+                </a>
+              )}
             </Button>
             
             {/* Contact buttons - only show if links exist */}
