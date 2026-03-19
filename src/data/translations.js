@@ -246,27 +246,6 @@ export const getTranslatedData = (language) => {
         year: "2018"
       },
     ],
-    
-    projects: [
-      {
-        name: "SmartYachtMonitor",
-        description: isGerman
-          ? "Vollständiges MLOps-Zyklus-Demonstrationsprojekt mit ML-Pipelines, Datenverarbeitung mit Spark und Modell-Deployment-Pipelines mit Docker & Kubernetes."
-          : "Full MLOps cycle demonstration project implementing ML pipelines, data processing with Spark, and model deployment pipelines with Docker & Kubernetes.",
-      },
-      {
-        name: "SAX Stock Pattern Detection",
-        description: isGerman
-          ? "Aktienindex-Mustererkennung mit SAX-Algorithmus und API-Datenabruf für Finanzzeit-Reihenanalyse."
-          : "Stock market index pattern detection with SAX algorithm and API data fetching for financial time series analysis.",
-      },
-      {
-        name: "Insurance Microservices Platform",
-        description: isGerman
-          ? "Architektierte Microservices-Plattform für Re-Insurance-Bereich; Angular Front-End + Azure Cloud-Integrationen."
-          : "Architected microservices platform for re-insurance domain; Angular front-end + Azure cloud integrations.",
-      },
-    ],
 
     projectsHistory: [
       {

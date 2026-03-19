@@ -152,29 +152,6 @@ const DATA = {
       year: "2018"
     },
   ],
-  projects: [
-    {
-      name: "SmartYachtMonitor",
-      description:
-        "Full MLOps cycle demonstration project implementing ML pipelines, data processing with Spark, and model deployment pipelines with Docker & Kubernetes.",
-      tags: ["Python", "MLOps", "MLflow", "Airflow", "Spark", "Kubernetes", "Terraform"],
-      link: "https://github.com/sbacht/SmartYachtMonitor",
-    },
-    {
-      name: "SAX Stock Pattern Detection",
-      description:
-        "Stock market index pattern detection with SAX algorithm and API data fetching for financial time series analysis.",
-      tags: ["Python", "Data Science", "SAX Algorithm", "Financial Analysis", "API Integration"],
-      link: "https://github.com/sbacht/sax-stock-patterns",
-    },
-    {
-      name: "Insurance Microservices Platform",
-      description:
-        "Architected microservices platform for re-insurance domain; Angular front-end + Azure cloud integrations.",
-      tags: [".NET", "Azure", "Angular", "Microservices"],
-      link: "",
-    },
-  ],
   speaking: [],
 };
 

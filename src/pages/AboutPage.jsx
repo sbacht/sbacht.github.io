@@ -137,29 +137,6 @@ export default function AboutPage({ language }) {
             </Card>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}>
-            <Card className="rounded-2xl shadow-sm">
-              <CardContent className="p-6">
-                <h2 className="text-xl font-semibold mb-4">{t.projects}</h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {translatedData.projects.map((p, i) => (
-                    <div key={i} className="border rounded-xl p-4 border-slate-200 dark:border-slate-600">
-                      <div className="font-medium">{p.name}</div>
-                      <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{p.description}</p>
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {DATA.projects[i]?.tags?.map((t, j) => (<Badge key={j} variant="secondary" className="rounded-full">{t}</Badge>))}
-                      </div>
-                      {DATA.projects[i]?.link && (
-                        <a href={DATA.projects[i].link} target="_blank" rel="noreferrer" className="text-sm underline inline-flex items-center mt-2">
-                          {translations[language].view} <ExternalLink className="h-3 w-3 ml-1"/>
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
         </section>
 
         <aside className="space-y-6">
