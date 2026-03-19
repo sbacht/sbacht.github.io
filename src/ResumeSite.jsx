@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+
+const VALID_PAGES = ['about', 'projects'];
+
+function getPageFromHash() {
+  const hash = window.location.hash.replace(/^#\/?/, '').trim();
+  return VALID_PAGES.includes(hash) ? hash : 'about';
+}
 import { Button } from "./components/ui/button";
 import { Sun, Moon, Globe } from "lucide-react";
 import AboutPage from "./pages/AboutPage";
 import ProjectsPage from "./pages/ProjectsPage";
-import BlogPage from "./pages/BlogPage";
 import { motion } from "framer-motion";
 import DATA from "./data/resumeData";
 import { translations } from "./data/translations";
@@ -20,7 +26,18 @@ export default function ResumeSite() {
   });
 
   const [showThemeToggle, setShowThemeToggle] = useState(true);
-  const [page, setPage] = useState("about");
+  const [page, setPage] = useState(getPageFromHash);
+
+  const navigate = useCallback((p) => {
+    window.location.hash = `/${p}`;
+    setPage(p);
+  }, []);
+
+  useEffect(() => {
+    const onHashChange = () => setPage(getPageFromHash());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
 
   const t = translations[language];
 
@@ -79,14 +96,11 @@ export default function ResumeSite() {
       {/* Navigation */}
       <nav className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <button onClick={() => setPage('about')} className={`px-3 py-1 rounded ${page === 'about' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+          <button onClick={() => navigate('about')} className={`px-3 py-1 rounded ${page === 'about' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
             {t.about}
           </button>
-          <button onClick={() => setPage('projects')} className={`px-3 py-1 rounded ${page === 'projects' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
+          <button onClick={() => navigate('projects')} className={`px-3 py-1 rounded ${page === 'projects' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
             {t.projects}
-          </button>
-          <button onClick={() => setPage('blog')} className={`px-3 py-1 rounded ${page === 'blog' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'}`}>
-            {t.blog}
           </button>
         </div>
         <div className="text-sm text-slate-500 dark:text-slate-400">{DATA.name}</div>
@@ -95,8 +109,6 @@ export default function ResumeSite() {
       {page === 'about' && <AboutPage language={language} />}
 
       {page === 'projects' && <ProjectsPage language={language} />}
-
-      {page === 'blog' && <BlogPage language={language} />}
 
       <motion.footer 
         initial={{ opacity: 0, y: 20 }} 
