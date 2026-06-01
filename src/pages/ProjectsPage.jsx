@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Building2, Calendar, Briefcase, Target, ListChecks, Code2 } from "lucide-react";
+import { ChevronDown, Building2, Calendar, Briefcase, Target, ListChecks, Code2, ExternalLink } from "lucide-react";
 import { Badge } from "../components/ui/badge";
 import { translations, getTranslatedData } from "../data/translations";
 
@@ -89,6 +89,19 @@ function ProjectCard({ project, t }) {
               className="overflow-hidden"
             >
               <div className="px-5 pb-5 pt-3 space-y-4 border-t border-slate-100 dark:border-slate-800">
+
+                {/* Live link */}
+                {project.link && (
+                  <a
+                    href={project.link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    {project.link.label}
+                  </a>
+                )}
 
                 {/* Project Goal */}
                 {project.goal && (

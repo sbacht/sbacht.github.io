@@ -249,6 +249,45 @@ export const getTranslatedData = (language) => {
 
     projectsHistory: [
       {
+        period: isGerman ? "03/2026 – heute" : "03/2026 – present",
+        title: isGerman
+          ? "SWA – Smart Warehouse Assistant (AI-gestütztes Inventar)"
+          : "SWA – Smart Warehouse Assistant (AI-Powered Inventory)",
+        company: isGerman ? "Eigenes Startup, München" : "Own Startup, Munich",
+        role: isGerman
+          ? "Gründer & Lead Engineer (AI, Full Stack & Cloud)"
+          : "Founder & Lead Engineer (AI, Full Stack & Cloud)",
+        link: { label: isGerman ? "Live-Demo" : "Live demo", url: "https://staging.swa-app.com/" },
+        goal: isGerman
+          ? "Gründung und Entwicklung einer AI-first Plattform, die die Handykamera in ein Haushalts-Inventarsystem verwandelt: Foto aufnehmen, in einen Lager-Baum (Raum → Regal → Box) einsortieren – die KI ergänzt Name, Beschreibung und Tags automatisch und erzeugt ein Embedding für die semantische Suche. Später findet man Dinge per natürlicher Sprache (\"wo sind meine Winterstiefel?\") und teilt Zugriff mit abgestuften Rollen – ohne Zugangsdaten weiterzugeben."
+          : "Founded and built an AI-first platform that turns a phone camera into a household inventory system: photograph an item, drop it into a storage tree (room → shelf → box), and the AI fills in the name, description and tags automatically while generating an embedding for semantic search. Later, find things in plain language (\"where are my winter boots?\") and share graded-role access without handing over credentials.",
+        tasks: isGerman
+          ? [
+              "AI Agent & MCP: Konzeption eines konversationellen KI-Assistenten, der das Inventar über MCP-Tools (Model Context Protocol) durchsucht und das Anlegen/Umstrukturieren des Lager-Baums per Chat ermöglicht (advisory, owner-gated – die KI schlägt vor, der Nutzer bestätigt).",
+              "AI Chat & Integration: Natürlichsprachige Abfragen (\"was brauche ich für ein Picknick?\") über Telegram-Bot und Web, angebunden an einen Python-AI-Sidecar (FastAPI) und LLM-Provider (OpenAI).",
+              "AI-Enrichment-Pipeline: Server-seitige Anreicherung aus Foto + Kontext zu Name, Beschreibung, Tags und Such-Embedding – inkl. semantischer Suche via PGVector.",
+              "Architektur: Entwurf einer Multi-Service-Plattform (Clean Architecture .NET-Backend, Python-AI-Sidecar, Telegram-Bot, native Android-App) mit einheitlichem /api/v1-Vertrag.",
+              "Cloud & DevOps: Infrastructure as Code (Terraform/Azure), lokale K8s-Spiegelung (Skaffold) und local-first Sync-Pipeline für Offline-Betrieb.",
+            ]
+          : [
+              "AI Agent & MCP: Designed a conversational AI assistant that reasons over the inventory through MCP (Model Context Protocol) tools and lets users build/restructure the storage tree by chatting — advisory and owner-gated (the AI proposes a structured change; the user confirms).",
+              "AI Chat & Integration: Natural-language queries (\"what should I pack for a picnic?\") across a Telegram bot and the web, wired to a Python AI sidecar (FastAPI) and LLM providers (OpenAI).",
+              "AI enrichment pipeline: Server-side enrichment from photo + context into name, description, tags and a search embedding — including semantic search via PGVector.",
+              "Architecture: Designed a multi-service platform (Clean Architecture .NET backend, Python AI sidecar, Telegram bot, native Android app) behind a single /api/v1 contract.",
+              "Cloud & DevOps: Infrastructure as Code (Terraform/Azure), local Kubernetes mirroring (Skaffold), and a local-first sync pipeline for offline operation.",
+            ],
+        stack: [
+          { category: "AI & LLM", items: ["OpenAI (gpt-4o-mini)", "MCP (Model Context Protocol)", "Semantic Search / Embeddings", "RAG"] },
+          { category: "AI Sidecar", items: ["Python", "FastAPI", "uv"] },
+          { category: "Backend", items: ["ASP.NET Core 10", "EF Core", "Clean Architecture", "Blazor"] },
+          { category: "Mobile", items: ["Kotlin", "Jetpack Compose", "Room (local-first)"] },
+          { category: isGerman ? "Bot & Sharing" : "Bot & Sharing", items: ["Python", "Telegram Bot"] },
+          { category: isGerman ? "Daten & Storage" : "Data & Storage", items: ["PostgreSQL 16 + PGVector", "Redis 7", "Cloudflare R2"] },
+          { category: isGerman ? "Auth & Infra" : "Auth & Infra", items: ["Firebase Auth → JWT", "Terraform", "Azure", "Docker", "Kubernetes (Skaffold)"] },
+        ],
+        type: "project",
+      },
+      {
         period: isGerman ? "01/2026 – heute" : "01/2026 – present",
         title: isGerman ? "AI-gestützte EBM-Abrechnungsoptimierung" : "AI-Powered EBM Billing Optimization",
         company: isGerman ? "Freiberuflich, München" : "Freelance, Munich",
