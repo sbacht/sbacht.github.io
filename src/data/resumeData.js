@@ -3,7 +3,7 @@ const DATA = {
   title: "Software Engineer",
   location: "Munich, Germany",
   summary:
-    "Software Engineer transitioning from 10+ years in software engineering and architecture. Experienced in building scalable, cloud-native platforms and now focused on deploying, monitoring, and automating machine learning systems in production.",
+    "AI-first software engineer and founder with 10+ years in software engineering and architecture. I build scalable, cloud-native platforms and now design conversational AI agents (MCP, RAG, semantic search) backed by multi-service architectures spanning .NET, Python/FastAPI and native mobile.",
   contacts: {
     email: "serge.bacht@gmail.com", 
     phone: "", 
@@ -12,18 +12,20 @@ const DATA = {
     github: "https://github.com/sbacht",
   },
   highlights: [
-    "Architected and delivered microservices platforms in insurance and automotive domains",
-    "Built CI/CD pipelines on Azure DevOps to cut deployment time and improve quality",
-    "Skilled in containerization (Docker, Kubernetes) and cloud IaC (Terraform, AWS, GCP)",
-    "Mentored teams, drove best practices, and delivered complex enterprise-grade solutions",
+    "Founded and built an AI-first platform with a conversational AI agent over MCP (Model Context Protocol) tools — advisory & owner-gated (the AI proposes structured changes, the user confirms)",
+    "Built an AI enrichment & semantic search pipeline (OpenAI, embeddings, RAG, PGVector) turning a photo into name, description, tags and natural-language retrieval",
+    "Designed a multi-service architecture: Clean Architecture .NET backend, Python/FastAPI AI sidecar, Telegram bot and native Android app behind a single /api/v1 contract",
+    "10+ years architecting scalable, cloud-native microservices platforms in insurance and automotive domains",
+    "Cloud & DevOps: Infrastructure as Code (Terraform/Azure), Docker/Kubernetes and CI/CD pipelines — complemented by mentoring teams and driving best practices",
   ],
   skills: {
     core: [
-      "Docker", "Kubernetes",
-      "Terraform", "CI/CD", "Azure DevOps", ".NET", "C#", "Microservices"
+      "AI Agents", "MCP (Model Context Protocol)", "RAG", "Semantic Search / Embeddings",
+      "OpenAI / LLMs", ".NET", "C#", "Python", "FastAPI", "Microservices"
     ],
     complementary: [
-      "React/TypeScript", "Angular", "SQL Server", "NoSQL", "Observability", "Problem Solving", "Team Leadership"
+      "Clean Architecture", "PostgreSQL + PGVector", "Docker", "Kubernetes", "Terraform", "Azure",
+      "CI/CD", "React/TypeScript", "Blazor", "Kotlin / Jetpack Compose", "Problem Solving", "Team Leadership"
     ],
   },
   experience: [

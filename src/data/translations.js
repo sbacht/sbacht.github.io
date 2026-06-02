@@ -70,25 +70,25 @@ export const getTranslatedData = (language) => {
     title: isGerman ? "Softwareingenieur" : "Software Engineer",
     location: isGerman ? "München, Deutschland" : "Munich, Germany",
     summary: isGerman
-      ? "Softwareingenieur mit Übergang von über 10 Jahren Software-Entwicklung und Architektur. Erfahren im Aufbau skalierbarer, Cloud-nativer Plattformen und jetzt konzentriert auf Bereitstellung, Überwachung und Automatisierung von Machine-Learning-Systemen in der Produktion."
-      : "Software Engineer transitioning from 10+ years in software engineering and architecture. Experienced in building scalable, cloud-native platforms and now focused on deploying, monitoring, and automating machine learning systems in production.",
+      ? "AI-first Softwareingenieur und Gründer mit über 10 Jahren Erfahrung in Software-Entwicklung und Architektur. Ich baue skalierbare, Cloud-native Plattformen und entwerfe heute konversationelle KI-Agenten (MCP, RAG, semantische Suche) auf Basis von Multi-Service-Architekturen über .NET, Python/FastAPI und native Mobile."
+      : "AI-first software engineer and founder with 10+ years in software engineering and architecture. I build scalable, cloud-native platforms and now design conversational AI agents (MCP, RAG, semantic search) backed by multi-service architectures spanning .NET, Python/FastAPI and native mobile.",
     
     highlights: [
-      isGerman 
-        ? "Architektierte und lieferte Microservices-Plattformen in Versicherungs- und Automobilbereich" 
-        : "Architected and delivered microservices platforms in insurance and automotive domains",
-      isGerman 
-        ? "Praktische Erfahrung mit ML-Pipelines (MLflow, Airflow) und Big Data (Apache Spark)" 
-        : "Hands-on experience with ML pipelines (MLflow, Airflow) and big data (Apache Spark)",
-      isGerman 
-        ? "Erstellte CI/CD-Pipelines auf Azure DevOps, um Deployment-Zeit zu reduzieren und Qualität zu verbessern" 
-        : "Built CI/CD pipelines on Azure DevOps to cut deployment time and improve quality",
-      isGerman 
-        ? "Versiert in Containerisierung (Docker, Kubernetes) und Cloud IaC (Terraform, AWS, GCP)" 
-        : "Skilled in containerization (Docker, Kubernetes) and cloud IaC (Terraform, AWS, GCP)",
-      isGerman 
-        ? "Mentorierte Teams, trieb Best Practices voran und lieferte komplexe Enterprise-Lösungen" 
-        : "Mentored teams, drove best practices, and delivered complex enterprise-grade solutions"
+      isGerman
+        ? "Gründete und entwickelte eine AI-first Plattform mit konversationellem KI-Agenten über MCP-Tools (Model Context Protocol) – advisory & owner-gated (die KI schlägt strukturierte Änderungen vor, der Nutzer bestätigt)"
+        : "Founded and built an AI-first platform with a conversational AI agent over MCP (Model Context Protocol) tools — advisory & owner-gated (the AI proposes structured changes, the user confirms)",
+      isGerman
+        ? "Baute eine AI-Enrichment- und semantische Such-Pipeline (OpenAI, Embeddings, RAG, PGVector), die aus einem Foto Name, Beschreibung, Tags und natürlichsprachige Suche erzeugt"
+        : "Built an AI enrichment & semantic search pipeline (OpenAI, embeddings, RAG, PGVector) turning a photo into name, description, tags and natural-language retrieval",
+      isGerman
+        ? "Entwarf eine Multi-Service-Architektur: Clean Architecture .NET-Backend, Python/FastAPI-AI-Sidecar, Telegram-Bot und native Android-App hinter einem einheitlichen /api/v1-Vertrag"
+        : "Designed a multi-service architecture: Clean Architecture .NET backend, Python/FastAPI AI sidecar, Telegram bot and native Android app behind a single /api/v1 contract",
+      isGerman
+        ? "Über 10 Jahre Architektur skalierbarer, Cloud-nativer Microservices-Plattformen in Versicherungs- und Automobilbereich"
+        : "10+ years architecting scalable, cloud-native microservices platforms in insurance and automotive domains",
+      isGerman
+        ? "Cloud & DevOps: Infrastructure as Code (Terraform/Azure), Docker/Kubernetes und CI/CD-Pipelines – ergänzt durch Team-Mentoring und Best Practices"
+        : "Cloud & DevOps: Infrastructure as Code (Terraform/Azure), Docker/Kubernetes and CI/CD pipelines — complemented by mentoring teams and driving best practices"
     ],
     
     experience: [
